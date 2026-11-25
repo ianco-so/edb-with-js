@@ -9,7 +9,13 @@ permissions:
 
 jobs:
     quality:
+        name: Qualidade no Node.js ${{ matrix.node-version }}
         runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                node-version: [22, 24, 26]
 
         steps:
             - name: Obter código
@@ -18,7 +24,7 @@ jobs:
             - name: Configurar Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: 24
+                  node-version: ${{ matrix.node-version }}
                   cache: npm
 
             - name: Instalar dependências
@@ -38,3 +44,22 @@ jobs:
 
             - name: Compilar projeto
               run: npm run build
+
+    security:
+        name: Análise estática CodeQL
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            security-events: write
+
+        steps:
+            - name: Obter código
+              uses: actions/checkout@v4
+
+            - name: Inicializar CodeQL
+              uses: github/codeql-action/init@v3
+              with:
+                  languages: javascript-typescript
+
+            - name: Executar análise CodeQL
+              uses: github/codeql-action/analyze@v3
