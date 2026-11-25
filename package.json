@@ -1,0 +1,46 @@
+{
+    "name": "edb-with-js",
+    "version": "1.0.0",
+    "description": "Estruturas de dados implementadas em TypeScript",
+    "main": "dist/src/index.js",
+    "types": "dist/src/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/src/index.d.ts",
+            "import": "./dist/src/index.js"
+        }
+    },
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json",
+        "start": "tsx src/main.ts",
+        "dev": "tsx watch src/main.ts",
+        "debug": "tsx --inspect-brk src/main.ts",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "check": "tsc --noEmit",
+        "lint": "eslint . --max-warnings=0",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "validate": "npm run format:check && npm run lint && npm run check && npm test"
+    },
+    "keywords": [
+        "typescript",
+        "data-structures",
+        "vitest"
+    ],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@types/node": "^26.6.10",
+        "@vitest/coverage-v8": "^5.1.2",
+        "eslint": "^10.15.0",
+        "prettier": "^3.10.1",
+        "tsx": "^4.23.15",
+        "typescript": "~5.9.3",
+        "typescript-eslint": "^8.74.0",
+        "vitest": "^5.1.2"
+    }
+}
