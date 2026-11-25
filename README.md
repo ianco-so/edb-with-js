@@ -4,7 +4,7 @@ Projeto para estudar TypeScript e estruturas de dados. Ele usa npm para gerencia
 
 ## Pré-requisitos
 
-- Node.js 22 ou superior.
+- Node.js 24 ou superior.
 - npm.
 - VS Code recomendado para a configuração de depuração incluída.
 
