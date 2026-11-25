@@ -35,10 +35,8 @@ export default class LinkedList<T> implements IList<T> {
                 previous = previous?.next ?? null;
             }
 
-            if (previous === null) throw new Error("Index out of bounds");
-
-            node.next = previous.next;
-            previous.next = node;
+            node.next = previous!.next;
+            previous!.next = node;
         }
 
         this.size++;
@@ -73,7 +71,7 @@ export default class LinkedList<T> implements IList<T> {
         let current = this.head;
 
         for (let i = 0; i < index; i++) {
-            current = current.next ?? this.head;
+            current = current.next!;
         }
 
         current.value = value;
@@ -106,16 +104,14 @@ export default class LinkedList<T> implements IList<T> {
         let current = this.head;
 
         for (let i = 0; i < index - 1; i++) {
-            if (current.next === null) throw new Error("Index out of bounds");
-            current = current.next;
+            current = current.next!;
         }
 
         const nodeToRemove = current.next;
-        if (nodeToRemove === null) throw new Error("Index out of bounds");
 
-        current.next = nodeToRemove.next;
+        current.next = nodeToRemove!.next;
         this.size--;
-        return nodeToRemove.value;
+        return nodeToRemove!.value;
     }
 
     public clear(): void {

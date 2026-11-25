@@ -9,6 +9,7 @@ export default class ListStack<T> implements IStack<T> {
         this.list.append(value);
         return value;
     }
+
     pop(): T | null {
         try {
             return this.list.remove(this.size - 1);
@@ -16,15 +17,19 @@ export default class ListStack<T> implements IStack<T> {
             return null;
         }
     }
+
     peek(): T | null {
         return this.list.get(this.size - 1);
     }
+
     isEmpty(): boolean {
         return this.size === 0;
     }
+
     clear(): void {
         this.list.clear();
     }
+
     toString(separator: string = ", "): string {
         return this.list.toString(separator);
     }
