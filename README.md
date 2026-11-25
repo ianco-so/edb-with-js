@@ -146,6 +146,15 @@ npm run test:coverage
 
 A configuração em `vitest.config.ts` gera relatórios no terminal e nas pastas `coverage/` em formatos HTML, LCOV e JSON.
 
+Os limites mínimos exigidos são:
+
+- 95% de instruções cobertas.
+- 85% de branches cobertos.
+- 100% de funções cobertas.
+- 100% das linhas cobertas.
+
+Se qualquer limite não for atingido, o comando `npm run test:coverage` falhará.
+
 ## Verificação de qualidade
 
 Verifique tipos:
