@@ -56,7 +56,7 @@ export interface IList<T> {
     /**
      * Mostra o lista encadeada em um formato bonito de string
      */
-    toString(): string;
+    toString(separator?: string): string;
 }
 
 export interface INode<T> {

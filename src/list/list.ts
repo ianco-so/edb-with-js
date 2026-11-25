@@ -123,7 +123,7 @@ export default class LinkedList<T> implements IList<T> {
         this.size = 0;
     }
 
-    public toString(): string {
+    public toString(separator: string = ", "): string {
         const values: T[] = [];
         let current = this.head;
 
@@ -132,6 +132,6 @@ export default class LinkedList<T> implements IList<T> {
             current = current.next;
         }
 
-        return values.join(", ");
+        return values.join(separator);
     }
 }

@@ -192,10 +192,11 @@ describe("LinkedList", () => {
     });
 
     describe("toString", () => {
-        it("retorna os valores separados por vírgula", () => {
+        it("retorna os valores separados pelo separador correto", () => {
             populate(26, 27, 28);
 
             expect(list.toString()).toBe("26, 27, 28");
+            expect(list.toString("-")).toBe("26-27-28");
         });
     });
 });
