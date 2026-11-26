@@ -6,20 +6,20 @@ export default class ListStack<T> implements IStack<T> {
     private list: IList<T> = new LinkedList<T>();
 
     push(value: T): T {
-        this.list.append(value);
+        this.list.insert(0, value);
         return value;
     }
 
     pop(): T | null {
         try {
-            return this.list.remove(this.size - 1);
+            return this.list.remove(0);
         } catch {
             return null;
         }
     }
 
     peek(): T | null {
-        return this.list.get(this.size - 1);
+        return this.list.get(0);
     }
 
     isEmpty(): boolean {
@@ -30,8 +30,15 @@ export default class ListStack<T> implements IStack<T> {
         this.list.clear();
     }
 
-    toString(separator: string = ", "): string {
-        return this.list.toString(separator);
+    toString(separator: string = " <- "): string {
+        const elements: string[] = [];
+        for (let i = 0; i < this.size; i++) {
+            const value = this.list.get(i);
+            if (value !== null) {
+                elements.push(String(value));
+            }
+        }
+        return elements.join(separator);
     }
 
     public get size(): number {

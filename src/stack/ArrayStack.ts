@@ -28,7 +28,8 @@ export default class ArrayStack<T> implements IStack<T> {
         this.items.length = 0;
     }
 
-    public toString(separator: string = ", "): string {
-        return this.items.join(separator);
+    public toString(separator: string = " <- "): string {
+        const reversedItems = [...this.items].reverse();
+        return reversedItems.map(String).join(separator);
     }
 }

@@ -54,7 +54,7 @@ describe.each([
 
     it("toString retorna os elementos na ordem correta", () => {
         populate(1, 2, 3);
-        expect(stack.toString()).toBe("1, 2, 3");
-        expect(stack.toString("-")).toBe("1-2-3");
+        expect(stack.toString()).toBe("3 <- 2 <- 1");
+        expect(stack.toString("-")).toBe("3-2-1");
     });
 });
