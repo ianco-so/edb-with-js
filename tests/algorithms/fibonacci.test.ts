@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import fibonacci from "../../src/arrays/fibonacci.js";
+import fibonacci from "../../src/algorithms/fibonacci.js";
 
 describe("fibonacci", () => {
     it.each([

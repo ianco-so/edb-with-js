@@ -34,9 +34,7 @@ export default class ListStack<T> implements IStack<T> {
         const elements: string[] = [];
         for (let i = 0; i < this.size; i++) {
             const value = this.list.get(i);
-            if (value !== null) {
-                elements.push(String(value));
-            }
+            elements.push(String(value));
         }
         return elements.join(separator);
     }
